@@ -12,13 +12,18 @@ export default function Home() {
   const [flowers, setFlowers] = useState<Flower[]>([])
   const [filteredFlowers, setFilteredFlowers] = useState<Flower[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
     setLoading(true)
-    const URL = 'https://dulces-petalos.herokuapp.com/api/product'
+    const URL = '/api/products'
     fetch(URL)
       .then(response => response.json())
       .then(response => {
+        if (!response.ok) {
+          setError(response.code)
+        }
+
         setFlowers(response)
         setFilteredFlowers(response)
       })
@@ -45,7 +50,9 @@ export default function Home() {
 
   let content
 
-  if (!loading) {
+  if (error === 'FLOWERS_NOT_FOUND') {
+    content = <div>No se han encontrado flores</div>
+  } else if (!loading) {
     content = filteredFlowers.map(flower => (
       <Link href={`/detail/${flower.id}`} key={flower.id}>
         <article className={styles.flowerContainer}>
