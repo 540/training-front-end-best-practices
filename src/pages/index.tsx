@@ -11,8 +11,10 @@ export default function Home() {
   const [search, setSearch] = useState<string>('')
   const [flowers, setFlowers] = useState<Flower[]>([])
   const [filteredFlowers, setFilteredFlowers] = useState<Flower[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    setLoading(true)
     const URL = 'https://dulces-petalos.herokuapp.com/api/product'
     fetch(URL)
       .then(response => response.json())
@@ -37,11 +39,13 @@ export default function Home() {
         ),
       )
     }
+
+    setLoading(false)
   }, [setFilteredFlowers, flowers, search])
 
   let content
 
-  if (filteredFlowers.length > 0) {
+  if (!loading) {
     content = filteredFlowers.map(flower => (
       <Link href={`/detail/${flower.id}`} key={flower.id}>
         <article className={styles.flowerContainer}>
@@ -64,6 +68,8 @@ export default function Home() {
         </article>
       </Link>
     ))
+  } else {
+    content = <div>Cargando...</div>
   }
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = event => {

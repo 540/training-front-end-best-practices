@@ -12,12 +12,14 @@ export default function Detail() {
   const params = useParams()
   const [flower, setFlower] = useState<Flower>()
   const [fertilizer, setFertilizer] = useState('')
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     if (!params?.id) {
       return
     }
 
+    setLoading(true)
     const URL = 'https://dulces-petalos.herokuapp.com/api/product/' + params.id
     fetch(URL)
       .then(response => response.json())
@@ -34,17 +36,20 @@ export default function Detail() {
       .catch(error => {
         alert('Ha ocurrido un error.')
       })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [params])
 
-  if (!flower) {
+  if (loading) {
     return <div>Cargando...</div>
   }
 
   return (
     <>
       <Head>
-        <title>{flower.name}</title>
-        <meta name="description" content={flower.name} />
+        <title>{flower!.name}</title>
+        <meta name="description" content={flower!.name} />
         <link rel="icon" type="image/png" href="/logo.png" sizes="200x200" />
       </Head>
       <div className={`${inter.className} ${styles.container}`}>
@@ -61,28 +66,28 @@ export default function Detail() {
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
-              src={flower.imgUrl}
-              alt={flower.name}
+              src={flower!.imgUrl}
+              alt={flower!.name}
               width={300}
               height={300}
             />
           </div>
 
           <div className={styles.infoContainer}>
-            <h2 className={styles.name}>{flower.name}</h2>
+            <h2 className={styles.name}>{flower!.name}</h2>
 
-            <p className={styles.binomialName}>{flower.binomialName}</p>
+            <p className={styles.binomialName}>{flower!.binomialName}</p>
 
-            <p className={styles.price}>{flower.price}€</p>
+            <p className={styles.price}>{flower!.price}€</p>
 
             <p className={styles.heightInCm}>
-              <b>Altura:</b> {flower.heightInCm}cm
+              <b>Altura:</b> {flower!.heightInCm}cm
             </p>
             <p className={styles.fertilizerType}>
               <b>Fertilizante:</b> {fertilizer}
             </p>
             <p className={styles.wateringsPerWeek}>
-              <b>Regar:</b> {flower.wateringsPerWeek} veces por semana
+              <b>Regar:</b> {flower!.wateringsPerWeek} veces por semana
             </p>
 
             <br />
