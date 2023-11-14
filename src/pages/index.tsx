@@ -43,7 +43,7 @@ export default function Home() {
 
   if (filteredFlowers.length > 0) {
     content = filteredFlowers.map(flower => (
-      <Link href={`/details/${flower.id}`} key={flower.id}>
+      <Link href={`/detail/${flower.id}`} key={flower.id}>
         <article className={styles.flowerContainer}>
           <div className={styles.heightInCm}>{flower.heightInCm} cm</div>
           <div className={styles.imageWrapper}>
