@@ -1,6 +1,6 @@
 .mainHeader {
-    margin-bottom: var(--space-md);
-    padding: var(--space-md) 0;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
 
     display: flex;
     align-items: center;
@@ -8,26 +8,23 @@
 }
 
 .logo {
-    --logo-height: 50px;
-    --logo-font-size: var(--font-size-xl);
-
     width: fit-content;
 
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: 1rem;
 
     cursor: pointer;
 }
 
 .logoImage {
-    height: var(--logo-height);
+    height: 50px;
 }
 
 .logoName {
-    font-size: var(--logo-font-size);
-    font-weight: var(--font-weight-lg);
-    color: var(--color-secondary);
+    font-size: 32px;
+    font-weight: 600;
+    color: #852951;
 }
 
 .themeButton {
@@ -43,7 +40,7 @@
 }
 
 .themeButton:hover {
-    background-color: var(--flower-card-background-color) !important;
+    background-color: #1a1a1a !important;
 }
 
 .detailsContainer {
@@ -52,14 +49,14 @@
 
 .imageWrapper {
     width: 50%;
-    padding: 0 var(--space-md);
+    padding: 0 1rem;
     display: flex;
     justify-content: right;
 }
 
 .image {
     width: 60%;
-    background-color: var(--flower-card-background-color);
+    background-color: #1a1a1a;
     object-fit: cover;
 }
 
@@ -80,45 +77,45 @@
 
 .infoContainer {
     width: 50%;
-    padding: 0 var(--space-md);
+    padding: 0 1rem;
 }
 
 .name {
-    font-size: var(--font-size-xl);
+    font-size: 32px;
 }
 
 .binomialName {
-    margin-top: var(--space-sm);
-    font-size: var(--font-size-lg);
-    color: var(--color-gray);
+    margin-top: 0.5rem;
+    font-size: 24px;
+    color: #aaaaaa;
 }
 
 .price {
-    margin-top: var(--space-md);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-lg);
-    color: var(--color-primary);
+    margin-top: 1rem;
+    font-size: 32px;
+    font-weight: 600;
+    color: #f29eb0;
 }
 
 .heightInCm {
-    margin-top: var(--space-md);
-    font-size: var(--font-size-lg);
+    margin-top: 1rem;
+    font-size: 24px;
 }
 
 .wateringsPerWeek {
-    margin-top: var(--space-md);
-    font-size: var(--font-size-lg);
+    margin-top: 1rem;
+    font-size: 24px;
 }
 
 .fertilizerType {
-    margin-top: var(--space-md);
-    font-size: var(--font-size-lg);
+    margin-top: 1rem;
+    font-size: 24px;
 }
 
 @media (max-width: 646px) {
     .infoContainer {
         width: 100%;
-        padding: var(--space-md) 0;
+        padding: 1rem 0;
     }
 
     .name,

@@ -1,12 +1,12 @@
 .container {
-  max-width: var(--container-max-width);
-  margin: 0 auto var(--space-xl) auto;
-  padding: 0 var(--space-md);
+  max-width: 1328px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1rem;
 }
 
 .mainHeader {
-  margin-bottom: var(--space-md);
-  padding: var(--space-md) 0;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
 
   display: flex;
   align-items: center;
@@ -14,46 +14,43 @@
 }
 
 .logo {
-  --logo-height: 50px;
-  --logo-font-size: var(--font-size-xl);
-
   width: fit-content;
 
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: 1rem;
 
   cursor: pointer;
 }
 
 .logoImage {
-  height: var(--logo-height);
+  height: 50px;
 }
 
 .logoName {
-  font-size: var(--logo-font-size);
-  font-weight: var(--font-weight-lg);
-  color: var(--color-secondary);
+  font-size: 32px;
+  font-weight: 600;
+  color: #852951;
 }
 
 .inputWrapper {
   width: 100%;
-  margin-bottom: var(--space-xl);
+  margin-bottom: 4rem;
   padding: 0 12rem;
 }
 
 .input {
   width: 100%;
-  padding: var(--space-md);
+  padding: 1rem;
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid var(--color-gray);
-  font-size: var(--font-size-lg);
-  color: var(--color-gray);
+  border-bottom: 2px solid #aaaaaa;
+  font-size: 24px;
+  color: #aaaaaa;
 }
 
 .input::placeholder {
-  color: var(--color-gray);
+  color: #aaaaaa;
 }
 
 .input:focus-visible {
@@ -62,7 +59,7 @@
 
 @media (max-width: 646px) {
   .inputWrapper {
-    padding: 0 var(--space-lg);
+    padding: 0 2rem;
   }
 }
 
@@ -85,10 +82,8 @@
 }
 
 .flowerContainer {
-  --article-width: 300px;
-
   position: relative;
-  width: var(--article-width);
+  width: 300px;
   text-align: center;
   overflow: hidden;
 }
@@ -101,12 +96,12 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: var(--space-xs) var(--space-sm);
+  padding: 0.25rem 0.5rem;
 
-  font-weight: var(--font-weight-lg);
+  font-weight: 600;
   color: white;
 
-  background-color: var(--color-primary);
+  background-color: #f29eb0;
 
   z-index: 10;
 }
@@ -126,20 +121,20 @@
   display: grid;
   place-items: center;
 
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  font-size: var(--font-size-xxl);
+  background-color: #852951;
+  color: #ffffff;
+  font-size: 48px;
 
   z-index: 9;
 
   opacity: 0;
-  transition: var(--animation-transition);
+  transition: 0.4s;
 }
 
 .image {
   width: 100%;
-  background-color: var(--flower-card-background-color);
-  transition: var(--animation-transition);
+  background-color: #1a1a1a;
+  transition: 0.4s;
   object-fit: cover;
 }
 
@@ -153,20 +148,20 @@
 }
 
 .infoContainer {
-  padding: var(--space-md) 0 var(--space-sm) 0;
+  padding: 1rem 0 0.5rem 0;
 }
 
 .name {
-  font-size: var(--font-size-lg);
+  font-size: 24px;
 }
 
 .binomialName {
-  font-size: var(--font-size-md);
-  color: var(--color-gray);
+  font-size: 16px;
+  color: #aaaaaa;
 }
 
 .price {
-  margin-top: var(--space-sm);
-  font-size: var(--font-size-lg);
-  color: var(--color-primary);
+  margin-top: 0.5rem;
+  font-size: 24px;
+  color: #f29eb0;
 }
