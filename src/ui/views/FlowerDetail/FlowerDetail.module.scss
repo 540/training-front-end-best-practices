@@ -1,0 +1,120 @@
+@import 'src/ui/styles/tools/mediaQueries';
+@import 'src/ui/styles/tools/functions';
+@import 'src/ui/styles/tools/mixins/gridLayout';
+@import 'src/ui/styles/tools/mixins/containers';
+@import 'src/ui/styles/tools/mixins/fonts';
+
+.mainHeader {
+  margin-bottom: toRem(16);
+  padding: toRem(16) 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: toRem(16);
+
+  cursor: pointer;
+}
+
+.logoName {
+  @include font-l-normal;
+  color: var(--color-primary);
+}
+
+.detailsContainer {
+  @include gridLayout;
+  @include contentContainer;
+}
+
+.imageWrapper {
+  @include fullWidthContainer;
+  grid-column: 1 / -1;
+  padding: 0;
+
+  @media #{$fromLaptop} {
+    grid-column: 1 / span 8;
+    display: flex;
+    justify-content: right;
+
+    margin-left: unset;
+    margin-right: unset;
+    width: 100%;
+  }
+
+  @media #{$fromDesktop} {
+    grid-column: 1 / span 6;
+    padding: 0 toRem(16);
+  }
+}
+
+.image {
+  background-color: var(--color-dark);
+  object-fit: cover;
+  width: 100%;
+
+  @media #{$fromLaptop} {
+    width: unset;
+  }
+}
+
+.infoContainer {
+  grid-column: 1 / -1;
+  width: 100%;
+
+  @media #{$fromLaptop} {
+    grid-column: 9 / -1;
+  }
+
+  @media #{$fromDesktop} {
+    grid-column: 7 / -1;
+  }
+}
+
+.name {
+  @include font-l-normal;
+  text-align: center;
+}
+
+.binomialName {
+  margin-top: toRem(8);
+  @include font-m-normal;
+  color: var(--color-soft);
+  text-align: center;
+}
+
+.price {
+  margin-top: toRem(16);
+  @include font-l-normal;
+  color: var(--color-primary-light);
+  text-align: center;
+}
+
+.heightInCm {
+  margin-top: toRem(16);
+  @include font-m-light;
+}
+
+.wateringsPerWeek {
+  margin-top: toRem(16);
+  @include font-m-light;
+}
+
+.fertilizerType {
+  margin-top: toRem(16);
+  @include font-m-light;
+}
+
+@media #{$fromLaptop} {
+  .name,
+  .binomialName,
+  .price {
+    text-align: unset;
+  }
+}

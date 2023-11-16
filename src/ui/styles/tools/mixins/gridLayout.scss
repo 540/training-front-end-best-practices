@@ -1,0 +1,16 @@
+@import 'src/ui/styles/tools/mediaQueries';
+
+@mixin gridLayout {
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--grid-mobile-gutter-gap);
+
+  @media #{$fromLaptop} {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media #{$onlyDesktop} {
+    column-gap: var(--grid-desktop-gutter-gap);
+  }
+}

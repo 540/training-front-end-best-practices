@@ -1,0 +1,32 @@
+@import 'src/ui/styles/tools/functions';
+@import 'src/ui/styles/tools/mediaQueries';
+
+:root {
+  --grid-max-container: #{toRem(1312)};
+
+  --grid-mobile-lateral-gap: #{toRem(16)};
+  --grid-tablet-lateral-gap: #{toRem(24)};
+  --grid-laptop-lateral-gap: #{toRem(32)};
+  --grid-desktop-lateral-gap: #{toRem(32)};
+  --grid-full-container-desktop-lateral-gap: calc(
+    calc(100vw - var(--grid-max-container)) / 2 +
+      var(--grid-desktop-lateral-gap)
+  );
+
+  --grid-mobile-gutter-gap: #{toRem(16)};
+  --grid-desktop-gutter-gap: #{toRem(24)};
+
+  --grid-lateral-gap: var(--grid-mobile-lateral-gap);
+
+  @media #{$fromTablet} {
+    --grid-lateral-gap: var(--grid-tablet-lateral-gap);
+  }
+
+  @media #{$fromLaptop} {
+    --grid-lateral-gap: var(--grid-laptop-lateral-gap);
+  }
+
+  @media #{$onlyDesktop} {
+    --grid-lateral-gap: var(--grid-full-container-desktop-lateral-gap);
+  }
+}

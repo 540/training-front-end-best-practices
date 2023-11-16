@@ -1,6 +1,6 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link'
-import styles from './FlowersList.module.css'
+import styles from 'src/ui/views/FlowersList/FlowersList.module.scss'
 import Image from 'next/image'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'

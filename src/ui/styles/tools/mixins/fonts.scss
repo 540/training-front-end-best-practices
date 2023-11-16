@@ -1,0 +1,75 @@
+@import 'src/ui/styles/tools/functions';
+
+$font-size-s: #{toRem(16)};
+$font-size-m: #{toRem(24)};
+$font-size-l: #{toRem(32)};
+$font-size-xl: #{toRem(48)};
+
+$line-height-s: #{toRem(24)};
+$line-height-m: #{toRem(36)};
+$line-height-l: #{toRem(48)};
+$line-height-xl: #{toRem(72)};
+
+$font-weight-light: 300;
+$font-weight-normal: 500;
+
+$letter-spacing-01: 0.0025em;
+$letter-spacing-02: 0.004em;
+$letter-spacing-03: 0.005em;
+$letter-spacing-04: 0.015em;
+
+@mixin font-s-light {
+  font-size: #{$font-size-s};
+  line-height: #{$line-height-s};
+  font-weight: #{$font-weight-light};
+  letter-spacing: #{$letter-spacing-03};
+}
+
+@mixin font-s-normal {
+  font-size: #{$font-size-s};
+  line-height: #{$line-height-s};
+  font-weight: #{$font-weight-normal};
+  letter-spacing: #{$letter-spacing-03};
+}
+
+@mixin font-m-light {
+  font-size: #{$font-size-m};
+  line-height: #{$line-height-m};
+  font-weight: #{$font-weight-light};
+  letter-spacing: #{$letter-spacing-04};
+}
+
+@mixin font-m-normal {
+  font-size: #{$font-size-m};
+  line-height: #{$line-height-m};
+  font-weight: #{$font-weight-normal};
+  letter-spacing: #{$letter-spacing-04};
+}
+
+@mixin font-l-light {
+  font-size: #{$font-size-l};
+  line-height: #{$line-height-l};
+  font-weight: #{$font-weight-light};
+  letter-spacing: #{$letter-spacing-02};
+}
+
+@mixin font-l-normal {
+  font-size: #{$font-size-l};
+  line-height: #{$line-height-l};
+  font-weight: #{$font-weight-normal};
+  letter-spacing: #{$letter-spacing-02};
+}
+
+@mixin font-xl-light {
+  font-size: #{$font-size-xl};
+  line-height: #{$line-height-xl};
+  font-weight: #{$font-weight-light};
+  letter-spacing: #{$letter-spacing-01};
+}
+
+@mixin font-xl-normal {
+  font-size: #{$font-size-xl};
+  line-height: #{$line-height-xl};
+  font-weight: #{$font-weight-normal};
+  letter-spacing: #{$letter-spacing-01};
+}

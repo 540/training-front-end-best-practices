@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import styles from './FlowerDetail.module.css'
+import styles from 'src/ui/views/FlowerDetail/FlowerDetail.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
@@ -68,8 +68,8 @@ export const FlowerDetail = () => {
               className={styles.image}
               src={flower!.imgUrl}
               alt={flower!.name}
-              width={300}
-              height={300}
+              width={500}
+              height={500}
             />
           </div>
 
@@ -81,13 +81,13 @@ export const FlowerDetail = () => {
             <p className={styles.price}>{flower!.price}€</p>
 
             <p className={styles.heightInCm}>
-              <b>Altura:</b> {flower!.heightInCm}cm
+              <span>Altura:</span> {flower!.heightInCm}cm
             </p>
             <p className={styles.fertilizerType}>
-              <b>Fertilizante:</b> {fertilizer}
+              <span>Fertilizante:</span> {fertilizer}
             </p>
             <p className={styles.wateringsPerWeek}>
-              <b>Regar:</b> {flower!.wateringsPerWeek} veces por semana
+              <span>Regar:</span> {flower!.wateringsPerWeek} veces por semana
             </p>
 
             <br />

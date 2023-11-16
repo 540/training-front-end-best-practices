@@ -1,0 +1,22 @@
+// https://stackoverflow.com/questions/70120238/do-i-consider-decimal-point-of-px-in-media-query
+$mobileMax: 645.98px;
+$tabletMin: 646px;
+$tabletMax: 767.98px;
+$laptopMin: 768px;
+$laptopMax: 1023.98px;
+$desktopMin: 1024px;
+$desktopMax: 1279.98px;
+$bigDesktopMin: 1280px;
+
+$onlyMobile: 'only screen and (max-width: ' + $mobileMax + ')';
+$onlyTablet: 'only screen and (min-width: ' + $tabletMin + ') AND (max-width: ' +
+  $tabletMax + ')';
+$onlyLaptop: 'only screen and (min-width: ' + $laptopMin + ') AND (max-width: ' +
+  $laptopMax + ')';
+$onlyDesktop: 'only screen and (min-width: ' + $desktopMin + ') AND (max-width: ' +
+  $desktopMax + ')';
+
+$fromTablet: 'only screen and (min-width: ' + $tabletMin + ')';
+$fromLaptop: 'only screen and (min-width: ' + $laptopMin + ')';
+$fromDesktop: 'only screen and (min-width: ' + $desktopMin + ')';
+$fromBigDesktop: 'only screen and (min-width: ' + $bigDesktopMin + ')';

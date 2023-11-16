@@ -1,12 +1,15 @@
+@import 'src/ui/styles/tools/mediaQueries';
+@import 'src/ui/styles/tools/functions';
+@import 'src/ui/styles/tools/mixins/containers';
+@import 'src/ui/styles/tools/mixins/fonts';
+
 .container {
-  max-width: 1328px;
-  margin: 0 auto 4rem auto;
-  padding: 0 1rem;
+  @include contentContainer;
 }
 
 .mainHeader {
-  margin-bottom: 1rem;
-  padding: 1rem 0;
+  margin-bottom: toRem(16);
+  padding: toRem(16) 0;
 
   display: flex;
   align-items: center;
@@ -18,48 +21,43 @@
 
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: toRem(16);
 
   cursor: pointer;
 }
 
-.logoImage {
-  height: 50px;
-}
-
 .logoName {
-  font-size: 32px;
-  font-weight: 600;
-  color: #852951;
+  @include font-l-normal;
+  color: var(--color-primary);
 }
 
 .inputWrapper {
   width: 100%;
-  margin-bottom: 4rem;
-  padding: 0 12rem;
+  margin-bottom: toRem(64);
+  padding: 0 toRem(192);
 }
 
 .input {
   width: 100%;
-  padding: 1rem;
+  padding: toRem(16);
   border: none;
   background-color: transparent;
-  border-bottom: 2px solid #aaaaaa;
-  font-size: 24px;
-  color: #aaaaaa;
+  border-bottom: toRem(2) solid var(--color-soft);
+  @include font-m-light;
+  color: var(--color-dark);
 }
 
 .input::placeholder {
-  color: #aaaaaa;
+  color: var(--color-soft);
 }
 
 .input:focus-visible {
   outline: none;
 }
 
-@media (max-width: 646px) {
+@media #{$onlyMobile} {
   .inputWrapper {
-    padding: 0 2rem;
+    padding: 0 toRem(32);
   }
 }
 
@@ -68,15 +66,15 @@
   grid-template-columns: 1fr;
   justify-items: center;
 
-  @media (min-width: 768px) {
+  @media #{$fromLaptop} {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 1024px) {
+  @media #{$fromDesktop} {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 1280px) {
+  @media #{$fromBigDesktop} {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -96,12 +94,12 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.25rem 0.5rem;
+  padding: toRem(4) toRem(8);
 
   font-weight: 600;
   color: white;
 
-  background-color: #f29eb0;
+  background-color: var(--color-primary-light);
 
   z-index: 10;
 }
@@ -121,9 +119,9 @@
   display: grid;
   place-items: center;
 
-  background-color: #852951;
-  color: #ffffff;
-  font-size: 48px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  @include font-xl-light;
 
   z-index: 9;
 
@@ -133,7 +131,7 @@
 
 .image {
   width: 100%;
-  background-color: #1a1a1a;
+  background-color: var(--color-dark);
   transition: 0.4s;
   object-fit: cover;
 }
@@ -148,20 +146,20 @@
 }
 
 .infoContainer {
-  padding: 1rem 0 0.5rem 0;
+  padding: toRem(16) 0 toRem(8) 0;
 }
 
 .name {
-  font-size: 24px;
+  @include font-m-normal;
 }
 
 .binomialName {
-  font-size: 16px;
-  color: #aaaaaa;
+  @include font-s-light;
+  color: var(--color-soft);
 }
 
 .price {
-  margin-top: 0.5rem;
-  font-size: 24px;
-  color: #f29eb0;
+  margin-top: toRem(8);
+  @include font-m-light;
+  color: var(--color-primary-light);
 }

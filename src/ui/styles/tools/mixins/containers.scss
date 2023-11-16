@@ -1,0 +1,14 @@
+@import 'src/ui/styles/tools/mediaQueries';
+
+@mixin contentContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--grid-max-container);
+  padding-left: var(--grid-lateral-gap);
+  padding-right: var(--grid-lateral-gap);
+}
+
+@mixin fullWidthContainer {
+  margin-left: calc(var(--grid-lateral-gap) * -1);
+  margin-right: calc(var(--grid-lateral-gap) * -1);
+}
