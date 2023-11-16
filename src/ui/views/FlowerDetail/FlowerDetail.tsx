@@ -58,7 +58,7 @@ export const FlowerDetail = () => {
       </Head>
       <div className={classNames(inter.className, styles.container)}>
         <header className={styles.mainHeader}>
-          <Logo />
+          <Logo path="/logo.png" />
         </header>
 
         <section className={styles.detailsContainer}>

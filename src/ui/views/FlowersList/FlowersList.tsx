@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 import { Logo } from '@/ui/components/molecules/Logo'
 import classNames from 'classnames'
 import { Loader } from '@/ui/components/atoms/Loader'
-import { Input } from '@/ui/components/atoms/TextInput'
+import { Input } from '../../components/atoms/Input'
 import { FlowerGallery } from '@/ui/components/organisms/FlowerGallery'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -68,7 +68,7 @@ export const FlowersList = () => {
       </Head>
       <div className={classNames(inter.className, styles.container)}>
         <header className={styles.mainHeader}>
-          <Logo />
+          <Logo path="/logo.png" />
         </header>
         <section className={styles.inputWrapper}>
           <Input placeholder="Busca aquí..." onChange={handleSearch} />
