@@ -1,0 +1,198 @@
+@import 'src/ui/styles/tools/mixins/fonts';
+@import 'src/ui/styles/tools/mediaQueries';
+
+.mobile-s-light {
+  @include font-s-light;
+}
+
+.mobile-s-normal {
+  @include font-s-normal;
+}
+
+.mobile-m-light {
+  @include font-m-light;
+}
+
+.mobile-m-normal {
+  @include font-m-normal;
+}
+
+.mobile-l-light {
+  @include font-l-light;
+}
+
+.mobile-l-normal {
+  @include font-l-normal;
+}
+
+.mobile-xl-light {
+  @include font-xl-light;
+}
+
+.mobile-xl-normal {
+  @include font-xl-normal;
+}
+
+@media #{$fromTablet} {
+  .tablet-s-light {
+    @include font-s-light;
+  }
+
+  .tablet-s-normal {
+    @include font-s-normal;
+  }
+
+  .tablet-m-light {
+    @include font-m-light;
+  }
+
+  .tablet-m-normal {
+    @include font-m-normal;
+  }
+
+  .tablet-l-light {
+    @include font-l-light;
+  }
+
+  .tablet-l-normal {
+    @include font-l-normal;
+  }
+
+  .tablet-xl-light {
+    @include font-xl-light;
+  }
+
+  .tablet-xl-normal {
+    @include font-xl-normal;
+  }
+}
+
+@media #{$fromLaptop} {
+  .laptop-s-light {
+    @include font-s-light;
+  }
+
+  .laptop-s-normal {
+    @include font-s-normal;
+  }
+
+  .laptop-m-light {
+    @include font-m-light;
+  }
+
+  .laptop-m-normal {
+    @include font-m-normal;
+  }
+
+  .laptop-l-light {
+    @include font-l-light;
+  }
+
+  .laptop-l-normal {
+    @include font-l-normal;
+  }
+
+  .laptop-xl-light {
+    @include font-xl-light;
+  }
+
+  .laptop-xl-normal {
+    @include font-xl-normal;
+  }
+}
+
+@media #{$fromDesktop} {
+  .desktop-s-light {
+    @include font-s-light;
+  }
+
+  .desktop-s-normal {
+    @include font-s-normal;
+  }
+
+  .desktop-m-light {
+    @include font-m-light;
+  }
+
+  .desktop-m-normal {
+    @include font-m-normal;
+  }
+
+  .desktop-l-light {
+    @include font-l-light;
+  }
+
+  .desktop-l-normal {
+    @include font-l-normal;
+  }
+
+  .desktop-xl-light {
+    @include font-xl-light;
+  }
+
+  .desktop-xl-normal {
+    @include font-xl-normal;
+  }
+}
+
+@media #{$fromBigDesktop} {
+  .big-desktop-s-light {
+    @include font-s-light;
+  }
+
+  .big-desktop-s-normal {
+    @include font-s-normal;
+  }
+
+  .big-desktop-m-light {
+    @include font-m-light;
+  }
+
+  .big-desktop-m-normal {
+    @include font-m-normal;
+  }
+
+  .big-desktop-l-light {
+    @include font-l-light;
+  }
+
+  .big-desktop-l-normal {
+    @include font-l-normal;
+  }
+
+  .big-desktop-xl-light {
+    @include font-xl-light;
+  }
+
+  .big-desktop-xl-normal {
+    @include font-xl-normal;
+  }
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-primary-light {
+  color: var(--color-primary-light);
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.color-soft {
+  color: var(--color-soft);
+}
+
+.color-light {
+  color: var(--color-light);
+}
+
+.toUppercase {
+  text-transform: uppercase;
+}
+
+.centered {
+  text-align: center;
+}

@@ -1,0 +1,19 @@
+@import 'src/ui/styles/tools/mediaQueries';
+
+.flowers {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  @media #{$fromLaptop} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$fromDesktop} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media #{$fromBigDesktop} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

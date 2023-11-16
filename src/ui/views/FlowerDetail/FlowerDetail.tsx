@@ -3,8 +3,12 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from 'src/ui/views/FlowerDetail/FlowerDetail.module.scss'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Image } from '@/ui/components/atoms/Image'
+import { Logo } from '@/ui/components/molecules/Logo/Logo'
+import classNames from 'classnames'
+import { Loader } from '@/ui/components/atoms/Loader'
+import { Text } from '@/ui/components/atoms/Text'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,7 +46,7 @@ export const FlowerDetail = () => {
   }, [params])
 
   if (loading) {
-    return <div>Cargando...</div>
+    return <Loader />
   }
 
   return (
@@ -52,14 +56,9 @@ export const FlowerDetail = () => {
         <meta name="description" content={flower!.name} />
         <link rel="icon" type="image/png" href="/logo.png" sizes="200x200" />
       </Head>
-      <div className={`${inter.className} ${styles.container}`}>
+      <div className={classNames(inter.className, styles.container)}>
         <header className={styles.mainHeader}>
-          <Link href="/">
-            <div className={styles.logo}>
-              <Image width={85} height={85} src="/logo.png" alt="Logo" />
-              <h1 className={styles.logoName}>Dulces Pétalos</h1>
-            </div>
-          </Link>
+          <Logo />
         </header>
 
         <section className={styles.detailsContainer}>
@@ -74,24 +73,43 @@ export const FlowerDetail = () => {
           </div>
 
           <div className={styles.infoContainer}>
-            <h2 className={styles.name}>{flower!.name}</h2>
+            <Text as="h2" fontStyle="l-normal" centered={true}>
+              {flower!.name}
+            </Text>
 
-            <p className={styles.binomialName}>{flower!.binomialName}</p>
+            <Text
+              as="p"
+              fontStyle="m-normal"
+              color="soft"
+              className="mt-xs"
+              centered={true}
+            >
+              {flower!.binomialName}
+            </Text>
+            <Text
+              as="p"
+              fontStyle="l-normal"
+              color="primary-light"
+              className="mt-m"
+              centered={true}
+            >
+              {flower!.price}€
+            </Text>
 
-            <p className={styles.price}>{flower!.price}€</p>
-
-            <p className={styles.heightInCm}>
-              <span>Altura:</span> {flower!.heightInCm}cm
-            </p>
-            <p className={styles.fertilizerType}>
-              <span>Fertilizante:</span> {fertilizer}
-            </p>
-            <p className={styles.wateringsPerWeek}>
-              <span>Regar:</span> {flower!.wateringsPerWeek} veces por semana
-            </p>
-
-            <br />
-
+            <Text as="p" fontStyle="m-light" color="dark" className="mt-m">
+              Altura: {flower!.heightInCm}cm
+            </Text>
+            <Text as="p" fontStyle="m-light" color="dark" className="mt-m">
+              Fertilizante: {fertilizer}
+            </Text>
+            <Text
+              as="p"
+              fontStyle="m-light"
+              color="dark"
+              className="mt-m mb-xl"
+            >
+              Regar: {flower!.wateringsPerWeek} veces por semana
+            </Text>
             <Link href="/">Volver atrás</Link>
           </div>
         </section>

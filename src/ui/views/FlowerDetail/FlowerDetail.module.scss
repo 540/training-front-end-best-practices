@@ -2,7 +2,6 @@
 @import 'src/ui/styles/tools/functions';
 @import 'src/ui/styles/tools/mixins/gridLayout';
 @import 'src/ui/styles/tools/mixins/containers';
-@import 'src/ui/styles/tools/mixins/fonts';
 
 .mainHeader {
   margin-bottom: toRem(16);
@@ -11,21 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  width: fit-content;
-
-  display: flex;
-  align-items: center;
-  gap: toRem(16);
-
-  cursor: pointer;
-}
-
-.logoName {
-  @include font-l-normal;
-  color: var(--color-primary);
 }
 
 .detailsContainer {
@@ -74,47 +58,5 @@
 
   @media #{$fromDesktop} {
     grid-column: 7 / -1;
-  }
-}
-
-.name {
-  @include font-l-normal;
-  text-align: center;
-}
-
-.binomialName {
-  margin-top: toRem(8);
-  @include font-m-normal;
-  color: var(--color-soft);
-  text-align: center;
-}
-
-.price {
-  margin-top: toRem(16);
-  @include font-l-normal;
-  color: var(--color-primary-light);
-  text-align: center;
-}
-
-.heightInCm {
-  margin-top: toRem(16);
-  @include font-m-light;
-}
-
-.wateringsPerWeek {
-  margin-top: toRem(16);
-  @include font-m-light;
-}
-
-.fertilizerType {
-  margin-top: toRem(16);
-  @include font-m-light;
-}
-
-@media #{$fromLaptop} {
-  .name,
-  .binomialName,
-  .price {
-    text-align: unset;
   }
 }

@@ -1,0 +1,21 @@
+@import 'src/ui/styles/tools/functions';
+@import 'src/ui/styles/tools/mixins/fonts';
+
+.input {
+  border: none;
+  border-bottom: toRem(2) solid var(--color-soft);
+  width: 100%;
+  padding: toRem(16);
+
+  @include font-m-light;
+  color: var(--color-dark);
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: var(--color-soft);
+}
+
+.input:focus-visible {
+  outline: none;
+}

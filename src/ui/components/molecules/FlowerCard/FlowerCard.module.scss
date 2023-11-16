@@ -1,50 +1,5 @@
-@import 'src/ui/styles/tools/mediaQueries';
 @import 'src/ui/styles/tools/functions';
-@import 'src/ui/styles/tools/mixins/containers';
 @import 'src/ui/styles/tools/mixins/fonts';
-
-.container {
-  @include contentContainer;
-}
-
-.mainHeader {
-  margin-bottom: toRem(16);
-  padding: toRem(16) 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.inputWrapper {
-  width: 100%;
-  margin-bottom: toRem(64);
-  padding: 0 toRem(192);
-}
-
-@media #{$onlyMobile} {
-  .inputWrapper {
-    padding: 0 toRem(32);
-  }
-}
-
-.flowers {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-
-  @media #{$fromLaptop} {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media #{$fromDesktop} {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media #{$fromBigDesktop} {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 
 .flowerContainer {
   position: relative;
@@ -62,9 +17,6 @@
   top: 0;
   right: 0;
   padding: toRem(4) toRem(8);
-
-  font-weight: 600;
-  color: white;
 
   background-color: var(--color-primary-light);
 
@@ -114,19 +66,4 @@
 
 .infoContainer {
   padding: toRem(16) 0 toRem(8) 0;
-}
-
-.name {
-  @include font-m-normal;
-}
-
-.binomialName {
-  @include font-s-light;
-  color: var(--color-soft);
-}
-
-.price {
-  margin-top: toRem(8);
-  @include font-m-light;
-  color: var(--color-primary-light);
 }

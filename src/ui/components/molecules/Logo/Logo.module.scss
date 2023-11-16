@@ -1,0 +1,11 @@
+@import 'src/ui/styles/tools/functions';
+
+.logo {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: toRem(16);
+
+  cursor: pointer;
+}
