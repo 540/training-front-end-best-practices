@@ -4,55 +4,24 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useFlowers } from '@/hooks/useFlowers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [search, setSearch] = useState<string>('')
-  const [flowers, setFlowers] = useState<Flower[]>([])
-  const [filteredFlowers, setFilteredFlowers] = useState<Flower[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string>('')
-
-  useEffect(() => {
-    setLoading(true)
-    const URL = '/api/products'
-    fetch(URL)
-      .then(response => response.json())
-      .then(response => {
-        if (!response.ok) {
-          setError(response.code)
-        }
-
-        setFlowers(response)
-        setFilteredFlowers(response)
-      })
-      .catch(error => {
-        alert('Ha ocurrido un error')
-      })
-  }, [])
-
-  useEffect(() => {
-    if (search === '') {
-      setFilteredFlowers(flowers)
-    } else {
-      setFilteredFlowers(
-        flowers.filter(
-          flower =>
-            flower.name.toLowerCase().startsWith(search) ||
-            flower.binomialName.toLowerCase().startsWith(search),
-        ),
-      )
-    }
-
-    setLoading(false)
-  }, [setFilteredFlowers, flowers, search])
+  const { flowers, error } = useFlowers()
 
   let content
 
-  if (error === 'FLOWERS_NOT_FOUND') {
-    content = <div>No se han encontrado flores</div>
-  } else if (!loading) {
+  if (flowers) {
+    const filteredFlowers = !search
+      ? flowers
+      : flowers.filter(
+          flower =>
+            flower.name.toLowerCase().startsWith(search) ||
+            flower.binomialName.toLowerCase().startsWith(search),
+        )
     content = filteredFlowers.map(flower => (
       <Link href={`/detail/${flower.id}`} key={flower.id}>
         <article className={styles.flowerContainer}>
@@ -75,6 +44,8 @@ export default function Home() {
         </article>
       </Link>
     ))
+  } else if (error === 'FLOWERS_NOT_FOUND') {
+    content = <div>No se han encontrado flores</div>
   } else {
     content = <div>Cargando...</div>
   }
