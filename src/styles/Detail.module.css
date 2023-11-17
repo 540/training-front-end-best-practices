@@ -27,22 +27,6 @@
     color: #852951;
 }
 
-.themeButton {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    border-radius: 50%;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.themeButton:hover {
-    background-color: #1a1a1a !important;
-}
-
 .detailsContainer {
     display: flex;
 }
