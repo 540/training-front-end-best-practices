@@ -4,13 +4,14 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getAllFlowers } from "@/core/services/getAllFlowers";
+import { getAllFlowers } from "@/core/usecases/getAllFlowers";
 import { Flower } from "@/core/domain/model/Flower";
+import { filterFlowersBy } from "@/core/usecases/filterFlowersBy";
 
 const inter = Inter({ subsets: [ 'latin' ] })
 
 export default function Home() {
-  const [ search, setSearch ] = useState<string>('')
+  const [ query, setQuery ] = useState<string>('')
   const [ flowers, setFlowers ] = useState<Flower[]>([])
   const [ filteredFlowers, setFilteredFlowers ] = useState<Flower[]>([])
   const [ loading, setLoading ] = useState<boolean>(true)
@@ -42,20 +43,9 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    if (search === '') {
-      setFilteredFlowers(flowers)
-    } else {
-      setFilteredFlowers(
-        flowers.filter(
-          flower =>
-            flower.name.toLowerCase().startsWith(search) ||
-            flower.binomialName.toLowerCase().startsWith(search),
-        ),
-      )
-    }
-
+    setFilteredFlowers(filterFlowersBy(query, flowers))
     setLoading(false)
-  }, [ setFilteredFlowers, flowers, search ])
+  }, [ setFilteredFlowers, flowers, query ])
 
   let content
 
@@ -89,7 +79,7 @@ export default function Home() {
   }
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = event => {
-    setSearch(event.target.value.toLowerCase())
+    setQuery(event.target.value.toLowerCase())
   }
 
   return (

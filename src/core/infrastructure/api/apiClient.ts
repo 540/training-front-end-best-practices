@@ -7,7 +7,7 @@ export const apiClient: ApiClient = {
     const response = await fetch(endpoint);
     const jsonResponse = await response.json();
 
-    if (!jsonResponse.ok) {
+    if (!response.ok) {
       throw new Error(jsonResponse.code)
     }
 
