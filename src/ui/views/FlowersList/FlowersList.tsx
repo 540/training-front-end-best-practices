@@ -9,6 +9,8 @@ import { Input } from '@/ui/components/atoms/Input'
 import { FlowerGallery } from '@/ui/components/organisms/FlowerGallery'
 import { FlowersNotFoundError } from '@/core/domain/model/FlowersNotFoundError'
 import { useFlowers } from '@/hooks/useFlowers'
+import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
+import { Selector } from '@/ui/components/atoms/Selector'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +24,7 @@ export const FlowersList = () => {
           flower.name.toLowerCase().startsWith(search) ||
           flower.binomialName.toLowerCase().startsWith(search),
       )
+  const { currencies, setCurrency, currency, roundPrice } = useCurrency()
 
   const handleSearch = (searchText: string) => {
     setSearch(searchText.toLowerCase())
@@ -41,12 +44,24 @@ export const FlowersList = () => {
       <div className={classNames(inter.className, styles.container)}>
         <header className={styles.mainHeader}>
           <Logo path="/logo.png" />
+          <Selector
+            options={currencies.map(currency => ({
+              name: currency.name,
+              value: currency.name,
+            }))}
+            current={currency.name}
+            onChange={setCurrency}
+          />
         </header>
         <section className={styles.inputWrapper}>
           <Input placeholder="Busca aquí..." onChange={handleSearch} />
         </section>
         {flowers ? (
-          <FlowerGallery flowers={filteredFlowers ?? []} />
+          <FlowerGallery
+            flowers={filteredFlowers ?? []}
+            currencySymbol={currency.symbol}
+            formatPrice={roundPrice}
+          />
         ) : error instanceof FlowersNotFoundError ? (
           <div>No se han encontrado flores</div>
         ) : (

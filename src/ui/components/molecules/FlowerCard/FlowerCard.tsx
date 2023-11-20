@@ -2,9 +2,20 @@ import Link from 'next/link'
 import { Image } from '@/ui/components/atoms/Image'
 import styles from './FlowerCard.module.scss'
 import { Text } from '@/ui/components/atoms/Text'
+import { FC } from 'react'
 
-export const FlowerCard = (props: { flower: Flower }) => (
-  <Link href={`/detail/${props.flower.id}`}>
+interface Props {
+  flower: Flower
+  currencySymbol: string
+  formatPrice: (price: number) => number
+}
+
+export const FlowerCard: FC<Props> = ({
+  flower,
+  currencySymbol,
+  formatPrice,
+}) => (
+  <Link href={`/detail/${flower.id}`}>
     <article className={styles.flowerContainer}>
       <Text
         as="div"
@@ -12,13 +23,13 @@ export const FlowerCard = (props: { flower: Flower }) => (
         color="light"
         className={styles.heightInCm}
       >
-        {props.flower.heightInCm} cm
+        {flower.heightInCm} cm
       </Text>
       <div className={styles.imageWrapper}>
         <div className={styles.imageFantasy}>+</div>
         <Image
-          src={props.flower.imgUrl}
-          alt={props.flower.name}
+          src={flower.imgUrl}
+          alt={flower.name}
           className={styles.image}
           width={300}
           height={300}
@@ -26,13 +37,14 @@ export const FlowerCard = (props: { flower: Flower }) => (
       </div>
       <div className={styles.infoContainer}>
         <Text as="p" fontStyle="m-normal" color="dark" className="mt-xs">
-          {props.flower.name}
+          {flower.name}
         </Text>
         <Text as="p" fontStyle="s-light" color="soft">
-          {props.flower.binomialName}
+          {flower.binomialName}
         </Text>
         <Text as="p" fontStyle="m-light" color="primary-light">
-          {props.flower.price}€
+          {formatPrice(flower.price)}
+          {currencySymbol}
         </Text>
       </div>
     </article>

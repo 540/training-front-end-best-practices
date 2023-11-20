@@ -10,6 +10,8 @@ import { useFlowerDetail } from '@/hooks/useFlowerDetail'
 import { Flower } from '@/core/domain/model/Flower'
 import classNames from 'classnames'
 import { Logo } from '@/ui/components/molecules/Logo'
+import { Selector } from '@/ui/components/atoms/Selector'
+import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +22,7 @@ export const FlowerDetail = () => {
     nitrogen: 'Nitrogenado',
     phosphorus: 'Fosforado',
   }
+  const { currencies, setCurrency, currency, roundPrice } = useCurrency()
 
   if (flowerDetail) {
     return (
@@ -32,6 +35,14 @@ export const FlowerDetail = () => {
         <div className={classNames(inter.className, styles.container)}>
           <header className={styles.mainHeader}>
             <Logo path="/logo.png" />
+            <Selector
+              options={currencies.map(currency => ({
+                name: currency.name,
+                value: currency.name,
+              }))}
+              current={currency.name}
+              onChange={setCurrency}
+            />
           </header>
 
           <section className={styles.detailsContainer}>
@@ -66,7 +77,8 @@ export const FlowerDetail = () => {
                 className="mt-m"
                 centered={true}
               >
-                {flowerDetail.price}€
+                {roundPrice(flowerDetail.price)}
+                {currency.symbol}
               </Text>
 
               <Text as="p" fontStyle="m-light" color="dark" className="mt-m">

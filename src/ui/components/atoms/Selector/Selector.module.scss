@@ -1,0 +1,12 @@
+@import 'src/ui/styles/tools/functions';
+@import 'src/ui/styles/tools/mixins/fonts';
+
+.selector {
+  border: toRem(1) solid var(--color-dark);
+  border-radius: var(--space-xs);
+  padding: var(--space-xs);
+
+  @include font-m-light;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
