@@ -2,8 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { ChangeEventHandler, useEffect, useState } from 'react'
+import { ChangeEventHandler, FC, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
+import { CurrencySelector } from '@/pages/CurrencySelector'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +15,7 @@ export default function Home() {
   const [filteredFlowers, setFilteredFlowers] = useState<Flower[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string>('')
+  const { currencies, setCurrency, currency, roundPrice } = useCurrency()
 
   useEffect(() => {
     setLoading(true)
@@ -70,7 +73,10 @@ export default function Home() {
           <div className={styles.infoContainer}>
             <p className={styles.name}>{flower.name}</p>
             <p className={styles.binomialName}>{flower.binomialName}</p>
-            <p className={styles.price}>{flower.price}€</p>
+            <p className={styles.price}>
+              {roundPrice(flower.price)}
+              {currency.symbol}
+            </p>
           </div>
         </article>
       </Link>
@@ -102,6 +108,11 @@ export default function Home() {
               <h1 className={styles.logoName}>Dulces Pétalos</h1>
             </div>
           </Link>
+          <CurrencySelector
+            currencies={currencies}
+            current={currency.name}
+            onChange={setCurrency}
+          />
         </header>
         <section className={styles.inputWrapper}>
           <input

@@ -165,3 +165,13 @@
   font-size: 24px;
   color: #f29eb0;
 }
+
+.currencySelector {
+  background-color: #ffffff;
+  border: 1px solid #1a1a1a;
+  border-radius: 0.5rem;
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0.5rem;
+}

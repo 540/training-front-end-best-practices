@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { CurrencySelector } from '@/pages/CurrencySelector'
+import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +15,7 @@ export default function Detail() {
   const [flower, setFlower] = useState<Flower>()
   const [fertilizer, setFertilizer] = useState('')
   const [loading, setLoading] = useState<boolean>(true)
+  const { currencies, setCurrency, currency, roundPrice } = useCurrency()
 
   useEffect(() => {
     if (!params?.id) {
@@ -60,6 +63,11 @@ export default function Detail() {
               <h1 className={styles.logoName}>Dulces Pétalos</h1>
             </div>
           </Link>
+          <CurrencySelector
+            currencies={currencies}
+            current={currency.name}
+            onChange={setCurrency}
+          />
         </header>
 
         <section className={styles.detailsContainer}>
@@ -78,7 +86,10 @@ export default function Detail() {
 
             <p className={styles.binomialName}>{flower!.binomialName}</p>
 
-            <p className={styles.price}>{flower!.price}€</p>
+            <p className={styles.price}>
+              {roundPrice(flower!.price)}
+              {currency.symbol}
+            </p>
 
             <p className={styles.heightInCm}>
               <b>Altura:</b> {flower!.heightInCm}cm
