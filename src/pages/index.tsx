@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useFlowers } from '@/hooks/useFlowers'
+import { FlowersNotFoundError } from "@/core/domain/model/FlowersNotFoundError";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -44,7 +45,7 @@ export default function Home() {
         </article>
       </Link>
     ))
-  } else if (error === 'FLOWERS_NOT_FOUND') {
+  } else if (error instanceof FlowersNotFoundError) {
     content = <div>No se han encontrado flores</div>
   } else {
     content = <div>Cargando...</div>
