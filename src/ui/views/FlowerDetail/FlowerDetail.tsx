@@ -1,17 +1,17 @@
 import { useParams } from 'next/navigation'
 import Head from 'next/head'
 import styles from './FlowerDetail.module.scss'
-import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import { Image } from '@/ui/components/atoms/Image'
 import { Loader } from '@/ui/components/atoms/Loader'
 import { Text } from '@/ui/components/atoms/Text'
-import { useFlowerDetail } from '@/hooks/useFlowerDetail'
 import { Flower } from '@/core/domain/model/Flower'
 import classNames from 'classnames'
 import { Logo } from '@/ui/components/molecules/Logo'
 import { Selector } from '@/ui/components/atoms/Selector'
-import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
+import { useFlowerDetail } from '@/ui/hooks/useFlowerDetail'
+import { useCurrency } from '@/ui/context/CurrencyContext/CurrencyContext'
+import { Link } from '@/ui/components/atoms/Link'
 
 const inter = Inter({ subsets: ['latin'] })
 

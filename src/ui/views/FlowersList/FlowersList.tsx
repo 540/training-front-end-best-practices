@@ -8,9 +8,9 @@ import { Loader } from '@/ui/components/atoms/Loader'
 import { Input } from '@/ui/components/atoms/Input'
 import { FlowerGallery } from '@/ui/components/organisms/FlowerGallery'
 import { FlowersNotFoundError } from '@/core/domain/model/FlowersNotFoundError'
-import { useFlowers } from '@/hooks/useFlowers'
-import { useCurrency } from '@/context/CurrencyContext/CurrencyContext'
 import { Selector } from '@/ui/components/atoms/Selector'
+import { useFlowers } from '@/ui/hooks/useFlowers'
+import { useCurrency } from '@/ui/context/CurrencyContext/CurrencyContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
