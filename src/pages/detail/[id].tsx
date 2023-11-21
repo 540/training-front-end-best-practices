@@ -33,11 +33,11 @@ export default function Detail() {
         } else {
           setFertilizer('tipo de fertilizante no definido')
         }
+
+        setLoading(false)
       } catch (e) {
         alert('Ha ocurrido un error.')
-      } finally {
-        setLoading(false)
-      }
+      } 
     }
 
     fetchFlowerDetail(params.id as string)
