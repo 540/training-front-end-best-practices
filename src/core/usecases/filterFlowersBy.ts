@@ -7,7 +7,7 @@ export const filterFlowersBy = (query: string, flowers: Flower[]) => {
 
   return flowers.filter(
     flower =>
-      flower.name.toLowerCase().startsWith(query) ||
-      flower.binomialName.toLowerCase().startsWith(query),
+      flower.name.toLowerCase().startsWith(query.toLowerCase()) ||
+      flower.binomialName.toLowerCase().startsWith(query.toLowerCase()),
   );
 }
