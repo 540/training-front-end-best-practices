@@ -1,0 +1,98 @@
+@import 'src/ui/styles/tools/mediaQueries';
+
+$directions: (
+  't': 'top',
+  'b': 'bottom',
+  'l': 'left',
+  'r': 'right',
+);
+
+$sizes: (
+  'zero': 0,
+  'xxs': var(--space-xxs),
+  'xs': var(--space-xs),
+  's': var(--space-s),
+  'm': var(--space-m),
+  'l': var(--space-l),
+  'xl': var(--space-xl),
+  '2xl': var(--space-2xl),
+  '3xl': var(--space-3xl),
+  '4xl': var(--space-4xl),
+  '5xl': var(--space-5xl),
+  'auto': auto,
+);
+
+$devices: (
+  'mobile': $onlyMobile,
+  'tablet': $onlyTablet,
+  'laptop': $onlyLaptop,
+  'desktop': $onlyDesktop,
+);
+
+@each $nameSize, $size in $sizes {
+  @each $nameDir, $dir in $directions {
+    @each $device, $deviceMediaQuery in $devices {
+      .m#{$nameDir}-#{$device}-#{$nameSize} {
+        @media #{$deviceMediaQuery} {
+          @if $dir == 'left' {
+            [dir='rtl'] & {
+              margin-right: $size !important;
+            }
+            :not([dir='rtl']) & {
+              margin-left: $size !important;
+            }
+          }
+
+          @if $dir == 'right' {
+            [dir='rtl'] & {
+              margin-left: $size !important;
+            }
+            :not([dir='rtl']) & {
+              margin-right: $size !important;
+            }
+          }
+
+          @if $dir == 'top' {
+            margin-top: $size !important;
+          }
+
+          @if $dir == 'bottom' {
+            margin-bottom: $size !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $nameSize, $size in $sizes {
+  @each $nameDir, $dir in $directions {
+    .m#{$nameDir}-#{$nameSize} {
+      @if $dir == 'left' {
+        [dir='rtl'] & {
+          margin-right: $size;
+        }
+        :not([dir='rtl']) & {
+          margin-left: $size;
+        }
+      }
+
+      @if $dir == 'right' {
+        [dir='rtl'] & {
+          margin-left: $size;
+        }
+        :not([dir='rtl']) & {
+          margin-right: $size;
+        }
+      }
+
+      @if $dir == 'top' {
+        margin-top: $size;
+      }
+
+      @if $dir == 'bottom' {
+        margin-bottom: $size;
+      }
+    }
+  }
+}

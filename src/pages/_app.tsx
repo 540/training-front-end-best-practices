@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '@/ui/styles/itcss.scss'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
 

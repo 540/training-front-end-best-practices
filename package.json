@@ -9,18 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
     "react-query": "3.39.2"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.3",
+    "@storybook/nextjs": "^7.5.3",
+    "@storybook/react": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "eslint-plugin-storybook": "^0.6.15",
     "prettier": "^3.1.0",
+    "sass": "^1.69.5",
+    "storybook": "^7.5.3",
     "typescript": "^5"
   }
 }
