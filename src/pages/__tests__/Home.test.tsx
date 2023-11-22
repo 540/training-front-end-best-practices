@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import Home from "../index";
 import { apiClient } from "../../core/infrastructure/api/apiClient";
 import { createFlower } from "../../core/domain/model/__builders__/createFlower";
@@ -25,7 +25,7 @@ describe('Home', () => {
       .mockResolvedValue([ createFlower({ name: flowerName, id: 100 }), createFlower({ name: otherFlowerName }) ])
 
     render(<Home/>)
-    await userEvent.type(screen.getByPlaceholderText('Busca aquí...'), flowerName)
+    await act(async () =>  await userEvent.type(screen.getByPlaceholderText('Busca aquí...'), flowerName))
 
     expect(await screen.findByText(flowerName)).toBeInTheDocument()
     expect(screen.queryByText(otherFlowerName)).not.toBeInTheDocument()
